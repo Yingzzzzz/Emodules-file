@@ -59,7 +59,9 @@ fi
       cat withspace.csv > internetlogg.csv 
       cat withspace.txt > internetlogg.txt 
       cat Finalwithsapce.csv > Finallogdone.csv
-      
+
+      cat Finallogdone.csv | awk -F"[,]+" '{print $1,$4,$5,$7}' >> List.csv
+      awk -F '|' '!x[$1,$2,$3,$4]++' Finallogdone.csv > filename_dedup.csv
 
      done
  
